@@ -1,0 +1,26 @@
+{
+  "name": "vite-runtime-envs",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "env-cmd --verbose -e dev vite",
+    "build": "vite build",
+    "start:staging": "env-cmd -e staging npm run preview",
+    "start:demo": "env-cmd -e demo npm run preview",
+    "start:test": "import-meta-env -x .env.public -e .env.test && vite preview",
+    "preview": "import-meta-env -x .env.public && vite preview"
+  },
+  "dependencies": {
+    "@import-meta-env/cli": "^0.1.7",
+    "env-cmd": "^10.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@import-meta-env/unplugin": "^0.1.8",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^2.9.0"
+  }
+}
